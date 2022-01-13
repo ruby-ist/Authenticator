@@ -120,6 +120,7 @@ GEM
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
     faraday-retry (1.0.3)
+    ffi (1.15.4)
     globalid (1.0.0)
       activesupport (>= 5.0)
     hashie (5.0.0)
@@ -150,6 +151,9 @@ GEM
     multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
+    net-http (0.2.0)
+      net-protocol
+      uri
     net-imap (0.2.3)
       digest
       net-protocol
@@ -255,6 +259,14 @@ GEM
     rspec-support (3.10.3)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
+    sassc (2.4.0)
+      ffi (~> 1.9)
+    sassc-rails (2.1.2)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     selenium-webdriver (4.1.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -271,12 +283,14 @@ GEM
       railties (>= 6.0.0)
     strscan (3.0.1)
     thor (1.2.1)
+    tilt (2.0.10)
     timeout (0.2.0)
     turbo-rails (1.0.0)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    uri (0.11.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -305,12 +319,14 @@ DEPENDENCIES
   devise (~> 4.8)
   importmap-rails
   jbuilder
+  net-http (~> 0.2.0)
   omniauth-github (~> 2.0)
   omniauth-google-oauth2 (~> 1.0)
   omniauth-rails_csrf_protection (~> 1.0)
   puma (~> 5.0)
   rails (~> 7.0.0)
   rspec-rails (~> 5.0)
+  sassc-rails
   selenium-webdriver
   sprockets-rails
   sqlite3 (~> 1.4)

@@ -43,7 +43,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # Use Sass to process CSS
-# gem "sassc-rails"
+gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -80,3 +80,5 @@ gem "omniauth-google-oauth2", "~> 1.0"
 gem "omniauth-rails_csrf_protection", "~> 1.0"
 
 gem "omniauth-github", "~> 2.0"
+
+gem "net-http", "~> 0.2.0"

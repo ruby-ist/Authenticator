@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' } do
-    get "users/auth/github", to: "users/omniauth_callbacks#github", as: :user_github_omniauth_authorize
-    post "users/auth/github", to: "users/omniauth_callbacks#github", as: :user_github_omniauth_authorize
-  end
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   devise_scope :user do
     get "users/sign_out", to: "devise/sessions#destroy"
   end
