@@ -1,11 +1,14 @@
-<p> hello world </p>
-<% if user_signed_in?%>
-	<em>Welcome <%= current_user.email %></em>
-<% end %>
-<div data-controller='hello'></div>
-<% if user_signed_in?%>
-	<%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-<% else %>
-	<%= link_to 'Sign In', new_user_session_path %>
-<% end %>
+<div class="center-page">
+	<% if user_signed_in?%>
+		<p>Welcome <em><%= current_user.email %></em></p>
+	<% else %>
+		<p> Please Sign in to Continue! </p>
+	<% end %>
+	<div data-controller='hello'></div>
+	<% if user_signed_in?%>
+		<%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'sign-btn' %>
+	<% else %>
+		<%= button_to 'Sign In', new_user_session_path, method: :get , class: 'sign-btn'%>
+	<% end %>
+</div>
 

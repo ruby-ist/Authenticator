@@ -1,5 +1,6 @@
 <%- if controller_name != 'sessions' %>
   <%= link_to "Log in", new_session_path(resource_name) %><br />
+  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
@@ -10,18 +11,25 @@
   <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
 <% end %>
 
-<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
-<% end %>
-
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end %>
-
-<%- if devise_mapping.omniauthable? %>
+<%- if devise_mapping.omniauthable? && controller_name == 'sessions' %>
+  <hr/>
+  <div class="special-login-btns">
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= button_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: :post, 'data-turbo': false %><br />
+    <%= button_to omniauth_authorize_path(resource_name, provider), method: :post, 'data-turbo': false, class: "#{provider}" do %>
+		<div class="icon-wrapper">
+		<% if OmniAuth::Utils.camelize(provider) == "GoogleOauth2" %>
+			<img class="btn-icon" src="https://upload.wikimedia.org/wikipedia/commons/archive/5/53/20210618182605%21Google_%22G%22_Logo.svg"/>
+		<% else %>
+			<img class="btn-icon" src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"/>
+		<% end %>
+		</div>
+		<p class="btn-text"><b><%= "Sign in with #{ OmniAuth::Utils.camelize(provider) == "GoogleOauth2" ? "Google" : OmniAuth::Utils.camelize(provider)}" %></b></p>
+	<% end %><br />
   <% end %>
+  </div>
 		
 <!--	# you can also switch to using `button_to`, which doesn't require rails-ujs for performing POST requests:-->
 	<%#= button_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>

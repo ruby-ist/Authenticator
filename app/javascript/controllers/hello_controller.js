@@ -4,7 +4,7 @@ import $ from "jquery"
 export default class extends Controller {
   connect() {
     $(document).on('turbo:load',() => {
-      $('p').css('color','green');
+    
     })
   }
 }
